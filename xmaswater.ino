@@ -10,7 +10,7 @@ const byte pin_trig=3;
 
 //zmienne sterujace
 const float max_tree_water = 0.30;
-const int bucket_height = 30;
+const int bucket_height = 24;
 const int min_water_height = 5;
 
 //zmienne
@@ -65,13 +65,14 @@ void loop()
         } else {
         // Nie potrzeba podlewać
         Serial.println("NIE Podlewamy");
-        digitalWrite(pin_relay,HIGH);
+        digitalWrite(pin_relay,HIGH); //wylacz pompe
         }
 
     } else {
       //Nie mamy wody we wiadrze
       Serial.print("NIE MAMY wody we wiadrze ");
       Serial.print(water_in_bucket);
+      digitalWrite(pin_relay,HIGH); //wylacz pompe
     }
      
 
